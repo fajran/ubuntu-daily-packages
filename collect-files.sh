@@ -2,27 +2,28 @@
 
 REPO=repo.txt
 ARCH=i386
-DIR="index"
+INDEX_DIR="index"
+FILES_DIR="files"
 TAG=`date +%Y-%m-%d`
 
 grep -v '^\s*#' $REPO | while read deb base code sections
 do
-	dir_base="$DIR/`echo $base | sed 's/[:\/]/_/g'`/$code"
+	dir_base="`echo $base | sed 's/[:\/]/_/g'`/$code"
 	for section in $sections
 	do
 		dir="$dir_base/$section/"
 		for arch in $ARCH
 		do
-			mkdir -p $dir
-			target="$dir/Packages.$arch"
+			mkdir -p "$FILES_DIR/$dir"
+			target="$FILES_DIR/$dir/files.$arch"
+			packages="$INDEX_DIR/$dir/Packages.$arch"
 
-			url="$base/dists/$code/$section/binary-$arch/Packages.gz"
-			wget -q -O - $url | gunzip -c > $target
+			grep ^Filename: $packages | cut -d' ' -f 2 | sort -u > $target		
 		done
 	done
 done
 
-pushd $DIR > /dev/null 2>&1
+pushd $FILES_DIR > /dev/null 2>&1
 git init > /dev/null 2>&1
 git add .
 git commit -a -m "$TAG"
