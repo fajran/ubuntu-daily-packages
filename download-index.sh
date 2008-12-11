@@ -7,7 +7,7 @@ TAG=`date +%Y-%m-%d`
 
 grep -v '^\s*#' $REPO | while read deb base code sections
 do
-	dir_base="$DIR/`echo $base | sed 's/[:\/]/_/g'`"
+	dir_base="$DIR/`echo $base | sed 's/[:\/]/_/g'`/$code"
 	for section in $sections
 	do
 		dir="$dir_base/$section/"
