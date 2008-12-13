@@ -23,10 +23,10 @@ do
 done
 
 pushd $DIR > /dev/null 2>&1
-git init > /dev/null 2>&1
-git add .
-git commit -a -m "$TAG"
-git tag -d "$TAG" > /dev/null 2>&1
-git tag "$TAG"
+bzr init > /dev/null 2>&1
+bzr add
+bzr commit -m "$TAG"
+bzr tag --delete "$TAG" > /dev/null 2>&1
+bzr tag "$TAG"
 popd > /dev/null 2>&1
 
