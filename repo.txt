@@ -1,2 +1,2 @@
-deb http://nl.archive.ubuntu.com/ubuntu hardy-security main restricted universe multiverse
-deb http://nl.archive.ubuntu.com/ubuntu hardy-updates main restricted universe multiverse
+ubuntu http://nl.archive.ubuntu.com/ubuntu hardy-security main restricted universe multiverse
+ubuntu http://nl.archive.ubuntu.com/ubuntu hardy-updates main restricted universe multiverse
