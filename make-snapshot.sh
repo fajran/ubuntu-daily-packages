@@ -3,7 +3,7 @@
 REPO=repo.txt
 ARCH="i386 amd64"
 
-BASE="log"
+BASE="data"
 TAG="`date +%Y-%m-%d`"
 
 grep -v '^\s*#' $REPO | while read group base code sections
