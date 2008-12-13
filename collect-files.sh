@@ -18,7 +18,7 @@ do
 			target="$FILES_DIR/$dir/files.$arch"
 			packages="$INDEX_DIR/$dir/Packages.$arch"
 
-			grep ^Filename: $packages | cut -d' ' -f 2 | sort -u > $target		
+			grep ^Filename: $packages | cut -d' ' -f 2 | sort -u | sort -n > $target		
 		done
 	done
 done
