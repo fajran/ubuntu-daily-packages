@@ -26,7 +26,7 @@ do
 
 			echo -n "packages " 1>&2
 
-			grep ^Filename: $packages | cut -d' ' -f 2 | sort -u | sort -n > $files
+			grep ^Filename: $packages | cut -d' ' -f 2 | sort -u > $files
 
 			echo "files" 1>&2
 
